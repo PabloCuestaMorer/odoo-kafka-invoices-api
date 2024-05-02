@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f8fe;
+    /* Light Google blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 350px;
+}
+
+h2 {
+    color: #1a73e8;
+    /* Google blue */
+    margin: 0 0 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #202124;
+    /* Dark grey for text */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #1a73e8;
+    /* Google blue */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #2a85f8;
+    /* Lighter Google blue */
+}

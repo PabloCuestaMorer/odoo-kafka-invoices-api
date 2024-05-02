@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo Invoice Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+</head>
+
+<body>
+    <h1>Odoo Invoice Data</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Client</th>
+            <th>Date</th>
+            <th>Due date</th>
+            <th>Total (€)</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+        {% for invoice in data %}
+        <tr>
+            <td>{{ invoice['name'] }}</td>
+            <td>{{ invoice['partner_id'][1] }}</td>
+            <td>{{ invoice['invoice_date'] }}</td>
+            <td>{{ invoice['invoice_date_due'] }}</td>
+            <td>{{ "{:,.2f} €".format(invoice['amount_total']) }}</td>
+            <td>{{ invoice['state'] }}</td>
+            <td>
+                <form action="{{ url_for('post_invoice', invoice_id=invoice['id']) }}" method="post">
+                    <button type="submit"
+                        class="{{ 'button-post' if invoice['state'] == 'draft' else 'button-unpost' }}">
+                        {{ 'Post' if invoice['state'] == 'draft' else 'Unpost' }}
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="window.location.href='/invoice-form';"
+        style="background-color: #1a73e8; color: white; border: none; border-radius: 4px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Add
+        New Invoice</button>
+</body>
+
+</html>

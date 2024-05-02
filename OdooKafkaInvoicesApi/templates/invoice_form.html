@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Invoice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/invoice_form.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add New Invoice</h2>
+        <form method="post" action="/add-invoice">
+            <label for="invoice_code">Invoice:</label>
+            <input type="text" id="invoice_code" name="invoice_code" required>
+
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" id="customer_name" name="customer_name" required>
+
+            <label for="invoice_date">Invoice Date:</label>
+            <input type="date" id="invoice_date" name="invoice_date" required>
+
+            <label for="due_date">Due Date:</label>
+            <input type="date" id="due_date" name="due_date" required>
+
+            <h3>Products</h3>
+            <label for="product_reference">Product Internal Reference:</label>
+            <input type="text" id="product_reference" name="product_reference" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="unit_price">Unit Price:</label>
+            <input type="number" id="unit_price" name="unit_price" required>
+
+            <input type="submit" value="Create Invoice">
+        </form>
+    </div>
+</body>
+
+</html>
